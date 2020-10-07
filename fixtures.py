@@ -4,6 +4,11 @@ from application.models.user import User
 
 
 def load_fixture(name):
+    """
+    Load json fixture (./application/fixtures/[name].json).
+    :param name: string
+    :return: object
+    """
     return json.load(open(os.path.join(os.getcwd(), 'application', 'fixtures', '{}.json'.format(name))))
 
 
