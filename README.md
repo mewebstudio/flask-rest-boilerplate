@@ -38,7 +38,7 @@ $ python app.py
 ```
 
 ## Mailing example
-```bash
+```python
 from flask_mail import Message
 from settings import mail
 
