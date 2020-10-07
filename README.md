@@ -13,12 +13,12 @@ for development
 cp .env.dev .env
 ```
 
-`Edit this .env file as you wish.`
-
 for production
 ```bash
 cp .env.prod .env
 ```
+
+`Edit this .env file as you wish.`
 
 ## Migrate DB
 ```bash
