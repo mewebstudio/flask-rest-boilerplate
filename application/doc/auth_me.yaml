@@ -1,0 +1,54 @@
+Authenticated user.
+---
+tags:
+  - Auth
+definitions:
+  auth_user:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "f8c8c4e9-6351-43a1-8ea7-5fc9a0444d12"
+      email:
+        type: string
+        example: "user@example.com"
+      name:
+        type: string
+        default: "John"
+      last_name:
+        type: string
+        example: "Doe"
+      roles:
+        type: array
+        items:
+          type: string
+          example: "ROLE_USER"
+      created_at:
+        type: string
+        format: date-time
+        example: "2020-10-04T10:09:56.722272"
+      updated_at:
+        type: string
+        format: date-time
+        example: "2020-10-06T23:21:12.234455"
+responses:
+  200:
+    description: Authenticated user data.
+    schema:
+      $ref: '#/definitions/auth_user'
+  401:
+    description: Token has expired
+    schema:
+      type: object
+      properties:
+        msg:
+          type: string
+          example: "Token has expired"
+  422:
+    description: Signature verification failed
+    schema:
+      type: object
+      properties:
+        msg:
+          type: string
+          example: "Signature verification failed"

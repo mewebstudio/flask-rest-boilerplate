@@ -1,0 +1,51 @@
+Get the user JWT token.
+---
+tags:
+  - Auth
+order: 1
+parameters:
+  - in: body
+    name: body
+    schema:
+      type: object
+      properties:
+        email:
+          type: string
+          example: "mail@example.com"
+        password:
+          type: string
+          example: "passwd"
+        remember_me:
+          type: boolean
+          example: true
+definitions:
+  access_token:
+    type: object
+    properties:
+      access_token:
+        type: string
+        example: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+      refresh_token:
+        type: string
+        example: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+responses:
+  200:
+    description: Return the Bearer Token.
+    schema:
+      $ref: '#/definitions/access_token'
+  400:
+    description: Missing parameter
+    schema:
+      type: object
+      properties:
+        msg:
+          type: string
+          example: "Missing email parameter"
+  401:
+    description: Bad credentials
+    schema:
+      type: object
+      properties:
+        msg:
+          type: string
+          example: "Bad credentials!"
