@@ -1,6 +1,6 @@
-#BMO API
+# flask-rest-boilerplate
 
-##Installation
+###### Installation
 ```bash
 pip install -r requirements.pip
 ```
@@ -15,19 +15,19 @@ for production
 cp .env.prod .env
 ```
 
-##Migrate DB
+###### Migrate DB
 ```bash
 $ python manage.py db init
 $ python manage.py db migrate
 $ python manage.py db upgrade
 ```
 
-## Load dummy data
+###### Load dummy data
 ```bash
 $ python fixtures.py
 ```
 
-##Mailing example
+###### Mailing example
 ```bash
 from flask_mail import Message
 from settings import mail
