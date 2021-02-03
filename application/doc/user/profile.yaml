@@ -1,0 +1,56 @@
+Update profile.
+---
+tags:
+  - User
+security:
+    - Bearer: [Authorization]
+parameters:
+  - in: body
+    name: body
+    schema:
+      type: object
+      required:
+        - email
+        - name
+        - lastname
+      properties:
+        email:
+          type: string
+          example: "mail@example.com"
+        name:
+          type: string
+          example: "John"
+        lastname:
+          type: string
+          example: "Doe"
+        password:
+          type: string
+          example: "passwd"
+        password_confirmation:
+          type: string
+          example: "passwd"
+responses:
+  200:
+    description: Return the Bearer Token.
+    schema:
+      type: object
+      properties:
+        access_token:
+          type: string
+          example: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+  400:
+    description: Missing parameter
+    schema:
+      type: object
+      properties:
+        msg:
+          type: string
+          example: "Missing email parameter"
+  401:
+    description: Bad credentials
+    schema:
+      type: object
+      properties:
+        msg:
+          type: string
+          example: "Bad credentials!"

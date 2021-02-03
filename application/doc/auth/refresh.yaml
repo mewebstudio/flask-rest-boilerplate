@@ -2,6 +2,7 @@ Refresh the user JWT token.
 ---
 tags:
   - Auth
+security: []
 parameters:
   - in: header
     name: Authorization
@@ -33,3 +34,11 @@ responses:
         msg:
           type: string
           example: "Bad credentials!"
+  422:
+    description: Bad credentials
+    schema:
+      type: object
+      properties:
+        msg:
+          type: string
+          example: "Only refresh tokens are allowed"

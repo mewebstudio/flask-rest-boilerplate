@@ -1,14 +1,15 @@
 from flask import request
 from flask_jwt_extended import (
-    create_access_token, create_refresh_token, jwt_required, get_jwt_identity, jwt_refresh_token_required
+    create_access_token, create_refresh_token, get_jwt_identity, jwt_refresh_token_required
 )
 from flask_restful import Resource
-from application.utils.helpers import doc, current_user
+
 from application.models.user import *
+from application.utils.helpers import doc
 
 
 class Login(Resource):
-    @doc('auth_login')
+    @doc('auth/login')
     def post(self):
         if not request.is_json:
             return {'msg': 'Missing JSON in request'}, 400
@@ -34,15 +35,8 @@ class Login(Resource):
 
 
 class Refresh(Resource):
-    @doc('auth_refresh')
+    @doc('auth/refresh')
     @jwt_refresh_token_required
-    def put(self):
+    def patch(self):
         email = get_jwt_identity()
         return {'access_token': create_access_token(identity=email)}
-
-
-class Me(Resource):
-    @doc('auth_me')
-    @jwt_required
-    def get(self):
-        return current_user()

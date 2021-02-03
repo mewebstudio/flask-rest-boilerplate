@@ -5,13 +5,14 @@ from application.models.user import User, UserSchema
 from settings import db
 
 
-def doc(name):
+def doc(name, validation=False):
     """
     API Doc YAML loader.
+    :param validation: bool
     :param name: string
     :return: string
     """
-    return swag_from(os.path.join(os.getcwd(), 'application/doc/{}.yaml'.format(name)))
+    return swag_from(os.path.join(os.getcwd(), 'application/doc/{}.yaml'.format(name)), validation=validation)
 
 
 def current_user():

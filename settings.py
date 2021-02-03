@@ -29,50 +29,50 @@ app.config.update({
     'MAIL_PASSWORD': os.environ.get('MAIL_PASSWORD'),
     'MAIL_SUPPRESS_SEND': False,
     'SWAGGER': {
-        "title": os.environ.get('NAME'),
-        "info": {
-            "title": os.environ.get('NAME'),
-            "version": os.environ.get('VERSION'),
+        'title': os.environ.get('NAME'),
+        'info': {
+            'title': os.environ.get('NAME'),
+            'version': os.environ.get('VERSION'),
         },
-        "specs": [
+        'specs': [
             {
-                "endpoint": "doc",
-                "route": "/api/doc.json",
-                "rule_filter": lambda rule: True,
-                "model_filter": lambda tag: True,
+                'endpoint': 'doc',
+                'route': '/api/doc.json',
+                'rule_filter': lambda rule: True,
+                'model_filter': lambda tag: True,
             }
         ],
-        "static_url_path": "/static/swagger",
-        "swagger_ui": True,
-        "specs_route": "/api/doc",
-        "consumes": [
-            "application/x-www-form-urlencoded",
+        'static_url_path': '/static/swagger',
+        'swagger_ui': True,
+        'specs_route': '/api/doc',
+        'consumes': [
+            'application/x-www-form-urlencoded',
         ],
-        "produces": [
-            "application/json",
+        'produces': [
+            'application/json',
         ],
-        "security": [
-            {
-                "ApiKeyAuth": []
-            }
-        ],
-        "securityDefinitions": {
-            "Bearer": {
-                "type": "apiKey",
-                "description": "Authorization: Bearer {jwt}",
-                "name": "Authorization",
-                "in": "header",
-                "scheme": "Bearer",
-                "template": "Bearer {apiKey}"
+        'securityDefinitions': {
+            'Bearer': {
+                'type': 'apiKey',
+                'description': 'Authorization: Bearer {jwt}',
+                'name': 'Authorization',
+                'in': 'header',
+                'scheme': 'Bearer',
+                'template': 'Bearer {apiKey}'
             }
         },
-        "uiversion": 3,
+        'security': [
+            {
+                'Bearer': []
+            }
+        ],
+        'uiversion': 3,
         'ui_params': {
             'apisSorter': 'alpha',
             'operationsSorter': 'alpha',
         },
-        "hide_top_bar": True,
-        "footer_text": '&copy; 2020. All rights reserved.',
+        'hide_top_bar': True,
+        'footer_text': '&copy; 2021. All rights reserved.',
     }
 })
 
@@ -80,12 +80,4 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 mail = Mail(app)
 jwt = JWTManager(app)
-swagger = Swagger(app, template={
-    "security": {
-        "bearerAuth": {
-            "bearerFormat": "JWT",
-            "scheme": "bearer",
-            "type": "http"
-        }
-    },
-})
+swagger = Swagger(app)

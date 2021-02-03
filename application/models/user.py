@@ -9,18 +9,18 @@ from datetime import datetime
 class User(db.Model, BaseModel):
     __tablename__ = 'users'
 
-    def __init__(self, email, password, name, last_name, roles=None):
+    def __init__(self, email, password, name, lastname, roles=None):
         self.email = email
         self.set_password(password)
         self.name = name
-        self.last_name = last_name
+        self.lastname = lastname
         self.roles = roles
 
     id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, unique=True, nullable=False)
     email = db.Column(db.String(255), index=True, unique=True, nullable=False)
     password = db.Column(db.String(255), index=True, unique=True, nullable=False)
     name = db.Column(db.String(120), index=True, nullable=False)
-    last_name = db.Column(db.String(120), index=True, nullable=False)
+    lastname = db.Column(db.String(120), index=True, nullable=False)
     roles = db.Column(db.JSON, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
     updated_at = db.Column(db.DateTime, default=None, nullable=True, onupdate=datetime.now)
@@ -34,5 +34,5 @@ class User(db.Model, BaseModel):
 
 class UserSchema(ma.Schema):
     class Meta:
-        fields = ('id', 'email', 'name', 'last_name', 'roles', 'created_at', 'updated_at')
+        fields = ('id', 'email', 'name', 'lastname', 'roles', 'created_at', 'updated_at')
         ordered = True

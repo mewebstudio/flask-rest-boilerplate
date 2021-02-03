@@ -2,7 +2,7 @@ Get the user JWT token.
 ---
 tags:
   - Auth
-order: 1
+security: []
 parameters:
   - in: body
     name: body

@@ -1,16 +1,16 @@
 [
   {
     "email": "admin@example.com",
-    "password": "passwd",
+    "password": "secret",
     "name": "Admin",
-    "last_name": "User",
+    "lastname": "User",
     "roles": ["ROLE_ADMIN", "ROLE_USER"]
   },
   {
     "email": "user@example.com",
-    "password": "passwd",
+    "password": "secret",
     "name": "Standard",
-    "last_name": "User",
+    "lastname": "User",
     "roles": ["ROLE_USER"]
   }
 ]

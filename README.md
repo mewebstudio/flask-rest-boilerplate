@@ -1,11 +1,8 @@
-# flask-rest-boilerplate
+#BMO API
 
-## Requirements:
-flask, python-dotenv, SQLAlchemy, Flask-SQLAlchemy, Flask-Migrate, Flask-Script, Flask-JWT-Extended, Flask-RESTful, Flask-Marshmallow, Flask-Mail, flasgger, marshmallow-sqlalchemy, Werkzeug, psycopg2
-
-## Installation
+##Installation
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.pip
 ```
 
 for development
@@ -18,9 +15,7 @@ for production
 cp .env.prod .env
 ```
 
-`Edit this .env file as you wish.`
-
-## Migrate DB
+##Migrate DB
 ```bash
 $ python manage.py db init
 $ python manage.py db migrate
@@ -32,13 +27,8 @@ $ python manage.py db upgrade
 $ python fixtures.py
 ```
 
-## Run app
+##Mailing example
 ```bash
-$ python app.py
-```
-
-## Mailing example
-```python
 from flask_mail import Message
 from settings import mail
 

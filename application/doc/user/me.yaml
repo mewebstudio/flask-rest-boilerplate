@@ -1,7 +1,9 @@
 Authenticated user.
 ---
 tags:
-  - Auth
+  - User
+security:
+  - Bearer: [Authorization]
 definitions:
   auth_user:
     type: object
@@ -15,7 +17,7 @@ definitions:
       name:
         type: string
         default: "John"
-      last_name:
+      lastname:
         type: string
         example: "Doe"
       roles:
@@ -51,4 +53,4 @@ responses:
       properties:
         msg:
           type: string
-          example: "Signature verification failed"
+          example: null
